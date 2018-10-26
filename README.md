@@ -6,6 +6,7 @@
 ### The basic structure of VGG16
 ![17](https://user-images.githubusercontent.com/37478093/47568634-3a210680-d964-11e8-8f55-1f5d9526c3ce.png)
 
+# Three main files
 
 ### 1. 'taking picture' file is to create your own dataset by taking a lot of pictures in each class
 
@@ -32,9 +33,13 @@
 
 
 # tkinter GUI and test result
+
 ![489z9rxq3e raajv f8 i6j](https://user-images.githubusercontent.com/37478093/47569456-3f7f5080-d966-11e8-9511-53db6557e2b8.png)
+
 ![135hxg25a 4ta 1o7nx9 mx](https://user-images.githubusercontent.com/37478093/47569466-44440480-d966-11e8-81e4-8ddf8f5d0282.jpg)
+
 ![z 6 _ xl 7aoqiq _ o3](https://user-images.githubusercontent.com/37478093/47569474-4908b880-d966-11e8-87e8-e39db099d5a6.png)
+
 ![g 1 vo i0rsy1 3jj brit](https://user-images.githubusercontent.com/37478093/47569479-4c9c3f80-d966-11e8-8c25-50be278db2d7.png)
 
 
