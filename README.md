@@ -9,3 +9,13 @@
 
 ### 3. 'tkinter with opencv with keras model' file is to create a user interface embeded with hand gesture recognition using the model you trained before.
 
+# Four classes
+
+### stop
+![imag11](https://user-images.githubusercontent.com/37478093/47567863-2eccdb80-d962-11e8-82dd-8bdc66b3f24f.jpg)
+### run forward
+![imag20](https://user-images.githubusercontent.com/37478093/47567889-4015e800-d962-11e8-816c-9754966c89b3.jpg)
+### turn left
+![imag5](https://user-images.githubusercontent.com/37478093/47567909-499f5000-d962-11e8-8999-0a4d5fe58763.jpg)
+### turn right
+![imag3](https://user-images.githubusercontent.com/37478093/47567932-54f27b80-d962-11e8-95a9-f9ccc8077d6c.jpg)
