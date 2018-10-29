@@ -1,19 +1,19 @@
 #include "SoftwareSerial.h"
-SoftwareSerial serial_connection(12, 13);//Create a serial connection with TX and RX on these pins
+
 #define BUFFER_SIZE 64//This will prevent buffer overruns.
 #define AI1 5    //motor Right
 #define AI2 4
 #define PWM_A 10
 
-#define BI1 6
+#define BI1 6    //motor left
 #define BI2 7
-#define PWM_B 11//motor left
+#define PWM_B 11
+
+SoftwareSerial serial_connection(12, 13);//Create a serial connection with TX and RX on these pins
 char inData[BUFFER_SIZE];//This is a character buffer where the data sent by the python script will go.
 char inChar=-1;//Initialie the first character as nothing
 int count=0;//This is the number of lines sent in from the python script
 int i=0;//Arduinos are not the most capable chips in the world so I just create the looping variable once
-
-
 
 void setup() {
   // put your setup code here, to run once:
@@ -75,12 +75,7 @@ void rotateright()
   stop_car();
   leftforward(100);
 }
-void spin()
-{
-  leftbackward(100);
-  rightforward(100);
-  delay(4000);
-}
+
 void stop_car()
 {
   digitalWrite(AI2, LOW);
@@ -90,6 +85,7 @@ void stop_car()
   digitalWrite(BI1, LOW);
   analogWrite(PWM_B, 0);
 }
+
 void loop()
 {
   //This will prevent bufferoverrun errors
@@ -117,41 +113,37 @@ void loop()
       inData[i]=inChar;//Put it into a character string(array)
     }
     inData[i]='\0';//This ends the character array with a null character. This signals the end of a string
-    if(String(inData)=="fwd_1s")
+    
+
+    if(String(inData)=="fwd_bit")
     {
-      Serial.println("********* Start Motor Forward for 1 second *********");
+      Serial.println("********* Move Forward a bit *********");
       moveforward();
-      delay(2000);
+      delay(1000);
       stop_car();
-    }
-    else if(String(inData)=="left_1s")
+    }    
+    
+    else if(String(inData)=="stop")
     {
-      Serial.println("********* Turning left for 1 second *********");
-      rotateleft();
-      delay(3600);
+      Serial.println("********* Stop car *********");
       stop_car();
     }
-    else if(String(inData)=="180deg")
-    {
-      Serial.println("********* Turning 180 degrees *********");
-      rotateleft();
-      delay(7200);
-      stop_car();
-    }
-    else if(String(inData)=="fwd_bit")
-    {
-      Serial.println("********* Start Motor Forward a bit *********");
-      moveforward();
-      delay(200);
-      stop_car();
-    }
+
     else if(String(inData)=="left_bit")
     {
       Serial.println("********* Turning left a bit *********");
       rotateleft();
-      delay(180);
+      delay(300);
       stop_car();
     }
+    
+    else if(String(inData)=="right_bit")
+    {
+      Serial.println("********* Turning right a bit *********");
+      rotateright();
+      delay(300);
+      stop_car();
+    }    
     
     for(i=0;i<remaining_bytes;i++)//This burns off any remaining bytes that the buffer can't handle.
     {
